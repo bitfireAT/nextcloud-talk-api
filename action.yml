@@ -1,0 +1,42 @@
+name: 'Send Nextcloud Talk Message'
+description: 'Send a chat message to a Nextcloud Talk room'
+author: 'nextcloud-talk-api maintainers'
+
+branding:
+  icon: 'message-circle'
+  color: 'blue'
+
+inputs:
+  server-url:
+    description: 'Base URL of the Nextcloud instance, e.g. https://cloud.example.com'
+    required: true
+  user:
+    description: 'Nextcloud user on whose behalf the message is sent'
+    required: true
+  app-password:
+    description: 'App password of the user; store it as a secret'
+    required: true
+  room-token:
+    description: 'Token of the Talk room to post to (the part after /call/ in the room link)'
+    required: true
+  message:
+    description: 'Message text to send'
+    required: true
+  silent:
+    description: 'Send without triggering notifications for room participants'
+    required: false
+    default: false
+  reply-to:
+    description: 'Id of an existing message to reply to'
+    required: false
+  reference-id:
+    description: 'Reference id to attach to the message for later correlation'
+    required: false
+
+outputs:
+  message-id:
+    description: 'Id of the sent message'
+
+runs:
+  using: 'node24'
+  main: 'dist/send-message/index.js'
