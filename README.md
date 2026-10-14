@@ -8,6 +8,8 @@ No build step is needed in your workflow — the action runs from the bundled `d
 ```yaml
 - name: Send Nextcloud Talk message
   uses: bitfireAT/nextcloud-talk-api@v1
+  # Normally the step ignores the exit code; remove this line if a failed send should fail the workflow.
+  continue-on-error: true
   with:
     server-url: 'https://cloud.example.com'
     user: 'ci-bot'
