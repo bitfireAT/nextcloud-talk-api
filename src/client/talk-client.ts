@@ -29,7 +29,8 @@ export function chatEndpoint(serverUrl: string, roomToken: string): string {
 export function requestHeaders(): Record<string, string> {
   return {
     'OCS-APIRequest': 'true',
-    Accept: 'application/json'
+    Accept: 'application/json',
+    'Content-Type': 'application/x-www-form-urlencoded'
   };
 }
 

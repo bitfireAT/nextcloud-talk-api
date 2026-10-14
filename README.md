@@ -7,7 +7,7 @@ No build step is needed in your workflow — the action runs from the bundled `d
 
 ```yaml
 - name: Send Nextcloud Talk message
-  uses: <owner>/<repo>@v1
+  uses: bitfireAT/nextcloud-talk-api@v1
   with:
     server-url: 'https://cloud.example.com'
     user: 'ci-bot'

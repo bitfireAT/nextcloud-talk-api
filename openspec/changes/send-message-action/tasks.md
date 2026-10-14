@@ -25,4 +25,4 @@
 ## 5. Integration checks
 
 - [x] 5.1 Add CI workflow (install, lint, unit tests, bundle, dist-freshness check); verify a pushed branch runs green end to end
-- [ ] 5.2 Smoke-test the bundled action against a real Nextcloud instance using test credentials; verify the message arrives in the room and `message-id` is set
+- [x] 5.2 Smoke-test the bundled action against a real Nextcloud instance using test credentials; verify the message arrives in the room and `message-id` is set

@@ -29,8 +29,12 @@ describe('chatEndpoint()', () => {
 });
 
 describe('requestHeaders()', () => {
-  it('sets the OCS API request header', () => {
-    expect(requestHeaders()).toEqual({ 'OCS-APIRequest': 'true', Accept: 'application/json' });
+  it('sets the OCS API request header and form content type', () => {
+    expect(requestHeaders()).toEqual({
+      'OCS-APIRequest': 'true',
+      Accept: 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
   });
 });
 

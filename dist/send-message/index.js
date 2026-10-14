@@ -25736,7 +25736,8 @@ function chatEndpoint(serverUrl, roomToken) {
 function requestHeaders() {
     return {
         'OCS-APIRequest': 'true',
-        Accept: 'application/json'
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
     };
 }
 /** Form fields for the chat API; optional fields are omitted when unset. */
