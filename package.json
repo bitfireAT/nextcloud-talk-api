@@ -1,6 +1,6 @@
 {
   "name": "nextcloud-talk-api",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "GitHub Actions for the Nextcloud Talk API",
   "main": "dist/send-message/index.js",

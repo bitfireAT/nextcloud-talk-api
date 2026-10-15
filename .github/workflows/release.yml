@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check dist is current
+        run: |
+          npm run bundle
+          git diff --exit-code -- dist
+          echo "dist/ is up to date"
+
+      - name: Move v1 tag to this commit
+        run: |
+          sha="$(git rev-parse HEAD)"
+          git tag -f v1 "$sha"
+          git push -f origin v1
