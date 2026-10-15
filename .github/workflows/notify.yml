@@ -1,0 +1,25 @@
+name: Notify
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Message text to send'
+        required: true
+
+permissions: {}
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Send Nextcloud Talk message
+        uses: ./
+        with:
+          server-url: ${{ secrets.NEXTCLOUD_SERVER_URL }}
+          user: ${{ secrets.NEXTCLOUD_USER }}
+          app-password: ${{ secrets.NEXTCLOUD_APP_PASSWORD }}
+          room-token: ${{ secrets.NEXTCLOUD_ROOM_TOKEN }}
+          message: ${{ inputs.message }}

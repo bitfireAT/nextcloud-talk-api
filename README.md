@@ -87,6 +87,6 @@ npm run bundle:check  # rebuild and fail if the committed dist/ is stale
 Workflows pin the major version tag (`bitfireAT/nextcloud-talk-api@v1`), following [GitHub's tag-based release management](https://docs.github.com/en/actions/how-tos/create-and-publish-actions/manage-custom-actions#using-tags-for-release-management):
 
 - A release is simply the position of the `v1` tag, which always points to the latest release within major version 1. There are no `v1.x.y` tags; the commit history is the changelog.
-- To cut a release: go to **Actions → Release → Run workflow** on the `main` branch. The workflow verifies `dist/` is current, then moves `v1` to that commit (`git tag -f v1 <sha>` + `git push -f origin v1`). If `dist/` is stale, it fails without touching the tag.
+- Releases are cut automatically: every push to `main` triggers the Release workflow, which verifies `dist/` is current, then moves `v1` to that commit (`git tag -f v1 <sha>` + `git push -f origin v1`). If `dist/` is stale, it fails without touching the tag.
 - A breaking change is released under the next major tag (`v2`); `v1` keeps pointing to the last compatible release, so workflows pinned to `@v1` are unaffected.
 - To pin an exact state in between releases, reference the commit SHA.
