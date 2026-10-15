@@ -25,7 +25,11 @@ The `v1` tag SHALL point to the commit of the latest release within major versio
 - **THEN** only major-version tags exist (currently `v1`)
 
 ### Requirement: Releases are cut by the release workflow
-A release SHALL be performed by a manually triggered CI workflow which verifies the committed bundle is current, then moves the `v1` tag to the released commit.
+A release SHALL be performed automatically by the release CI workflow on every push to the `main` branch. The workflow SHALL verify the committed bundle is current, then move the `v1` tag to the pushed commit.
+
+#### Scenario: Push to main triggers the release
+- **WHEN** a commit is pushed to `main`
+- **THEN** the release workflow runs automatically for that commit without manual interaction
 
 #### Scenario: Stale bundle blocks the release
 - **WHEN** the release workflow runs on a commit whose committed `dist/` does not match a fresh build

@@ -8,7 +8,7 @@
 ## 2. Manual notify workflow
 
 - [x] 2.1 Create `.github/workflows/notify.yml`: `workflow_dispatch` with required `message` input, minimal permissions, one job that runs the local action (`uses: ./`) with the four repository secrets (`NEXTCLOUD_SERVER_URL`, `NEXTCLOUD_USER`, `NEXTCLOUD_APP_PASSWORD`, `NEXTCLOUD_ROOM_TOKEN`) and no `continue-on-error`; verify the file parses with `act --list` or equivalent YAML lint
-- [ ] 2.2 Add the four repository secrets on GitHub and verify a manual dispatch with a test message posts exactly that message to the configured room
+- [x] 2.2 Add the four repository secrets on GitHub and verify a manual dispatch with a test message posts exactly that message to the configured room
 
 ## 3. Integration check
 
