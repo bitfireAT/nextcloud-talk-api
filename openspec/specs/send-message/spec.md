@@ -72,10 +72,3 @@ The action SHALL work unmodified on GitHub-hosted runners and on self-hosted run
 #### Scenario: Self-hosted runner behind a proxy
 - **WHEN** the runner sets `HTTPS_PROXY` and `NO_PROXY` appropriately
 - **THEN** the request to the Nextcloud server goes through the proxy
-
-### Requirement: Usable via major version tag
-The action SHALL be consumable as `<owner>/<repo>@v1` with no build step on the workflow side, via a bundled artifact committed to the repository and released on the `v1` tag.
-
-#### Scenario: Workflow uses the v1 tag
-- **WHEN** a workflow references the action as `<owner>/<repo>@v1`
-- **THEN** the action runs from the bundled artifact without compiling anything at run time
