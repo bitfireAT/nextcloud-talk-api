@@ -30,3 +30,9 @@ schema: spec-driven
 #     archive:
 #       guidance:
 #         - Summarize the archive outcome before finishing
+
+operations:
+  archive:
+    guidance:
+      - When archiving a change that touched shipped behavior, ask the user whether the changes should be released too (run the release workflow so the v1 tag moves to the new commit).
+      - Never move the v1 tag without explicit user confirmation.
