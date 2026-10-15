@@ -26,8 +26,8 @@
   GitHub rejects the dispatch form when a required input is empty, which satisfies the "Dispatch without a message" scenario without custom code.
 - **No `continue-on-error` in the notify workflow.**
   A failed send should mark the run as failed — the workflow exists to surface problems. (Consumer workflows may keep the README's `continue-on-error` pattern; this one should not.)
-- **`permissions: contents: read` (release) / minimal permissions (notify).**
-  The tag move needs `contents: write`; the release job keeps it scoped to that workflow. The notify workflow sends an HTTP request to an external server and needs no write permissions.
+- **`permissions: contents: read` (release and notify workflows).**
+  The tag move needs `contents: write`; the release job keeps it scoped to that workflow. The notify workflow needs `contents: read` so `actions/checkout` can fetch this private repository with the workflow token; it needs no write permissions. (An empty `permissions: {}` was tried first and made checkout fail with "repository not found" on the private repo.)
 
 ## Risks / Trade-offs
 

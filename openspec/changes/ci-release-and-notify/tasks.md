@@ -12,4 +12,4 @@
 
 ## 3. Integration check
 
-- [ ] 3.1 Push a trivial commit to `main` and verify the Release workflow runs automatically and moves the `v1` tag to that commit (`git ls-remote origin v1` matches the pushed SHA)
+- [x] 3.1 Push a trivial commit to `main` and verify the Release workflow runs automatically and moves the `v1` tag to that commit (`git ls-remote origin v1` matches the pushed SHA)
